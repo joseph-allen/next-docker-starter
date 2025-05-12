@@ -1,0 +1,11 @@
+// next-app/tsconfig.jest.json
+{
+  "extends": "./tsconfig.json", // Reference your main tsconfig
+  "compilerOptions": {
+    "jsx": "react-jsx", // Ensure JSX is handled properly
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "isolatedModules": false
+  }
+}
