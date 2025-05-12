@@ -21,7 +21,19 @@ Takehome task for TableCheck.
 
 ## Setup
 
-### First time setup
+### Quick run with Docker
+
+```
+docker compose up
+```
+
+You may need to build for Windows devices first
+
+```
+DOCKER_BUILDKIT=1 docker compose build --no-cache
+```
+
+### Running locally
 
 If you've never run a Next app locally before, this more verbose guide is for you.
 
@@ -44,13 +56,6 @@ This project includes an .nvmrc file, so you can run the following to set your v
 ```bash
 nvm install
 nvm use
-```
-
-#### 2. Install Docker
-
-```
-DOCKER_BUILDKIT=1 docker compose build --no-cache
-docker compose up
 ```
 
 ### Quick setup
@@ -138,3 +143,7 @@ MongoDB was a requirement, and is what I'm use commonly as Next.js + MongoDB cov
 I use WSL, as I'm on a Windows machine for now and setting this up with MongoDB is a pretty awful experience. Luckily, since a later requirement is to move over to a Docker script I'm bringing that in now.
 
 At this point I have the Docker Compose script building an empty MongoDB, which I can sucessfully hit from within my Next App, also dpeloyed inside the Docker Container locally. Next my plan is to update the deploy on Vercel to continue to deploy the Next App, and find a solution for deploying MongoDB instances so that I have a "dev" and "prod".
+
+I feel a need to mention is strange edge case, I'm coding on Windows and many docker images don't work on Windows OS. I would have expected the point of Docker to be that you could run your containers anywhere, but I suppose people aren't running those containers on Windows machines much, so apologies I had to include Docker Buildkit so while you may be able to run the simple docker compose required, I will not.
+
+Happily, I've satisfied the requirement to run on `docker compose run` without having to do so intentionally.
