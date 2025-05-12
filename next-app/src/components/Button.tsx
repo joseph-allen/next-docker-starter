@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 interface ButtonProps {
-  variant?: "primary" | "secondary";
+  variant?: 'primary' | 'secondary';
 }
 
 const Button = styled.button<ButtonProps>`
@@ -15,12 +15,12 @@ const Button = styled.button<ButtonProps>`
   transition: background-color 0.2s ease;
 
   background-color: ${({ variant }) =>
-    variant === "secondary" ? "#eee" : "hotpink"};
-  color: ${({ variant }) => (variant === "secondary" ? "#333" : "white")};
+    variant === 'secondary' ? '#eee' : 'hotpink'};
+  color: ${({ variant }) => (variant === 'secondary' ? '#333' : 'white')};
 
   &:hover {
     background-color: ${({ variant }) =>
-      variant === "secondary" ? "#ddd" : "deeppink"};
+      variant === 'secondary' ? '#ddd' : 'deeppink'};
   }
 
   @media (max-width: 600px) {
