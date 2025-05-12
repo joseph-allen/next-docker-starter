@@ -48,8 +48,31 @@ nvm use
 
 #### 2. Install Docker
 
-Install Docker Desktop from the official site:  
-https://www.docker.com/products/docker-desktop/
+```bash
+docker run -d \
+  -p 27017:27017 \
+  -v $(pwd)/lib/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro \
+  -e MONGO_INITDB_ROOT_USERNAME=root \
+  -e MONGO_INITDB_ROOT_PASSWORD=example \
+  mongo
+
+```
+
+Run Docker with MongoDB instance:
+
+```
+docker compose up -d
+```
+
+```
+docker ps
+```
+
+Stop container:
+
+```
+docker compose down
+```
 
 ### Quick setup
 
@@ -124,3 +147,13 @@ I'm not certain on the shape of my docker file yet, but I know my requirement is
 My choice of Next immediately backfired, in a view to make my API a self-documenting one I forgot the complexities added by having the option of easy SSR with Next and Vercel. This meant I was burrowing down for the edge case of a working example or Emotion, with Next, with SSR, in these particular versions of React and Emotion. This has been shockingly turbulent over the last few versions and after spending too long on what should have been "out-of-the-box" I instead decided to not use SSR in my client-side components.
 
 Had I known this, I think I would instead use Material-UI with Tailwind for inline styles, considering this is a faster prototyping project, but I think for a larger project I was more along the right track here.
+
+### 3. Setup Xstate
+
+A take home task is a great time to try something new, and I haven't used xState before but Finite State Machines feels like something that should be part of state anyway. This seems to be a viable replacement to Redux in a newer app, but at the same time the conflation between Redux, Flux, xState and beyond keeps reworking similar ideas so while I can track it enough now to implement a basic button, it will be interesting to see if this helps my project.
+
+### 4. Setup MongoDB
+
+MongoDB was a requirement, and is what I'm use commonly as Next.js + MongoDB covers most use cases I face. I'm normally required to interact with MongoDB, but not code it myself so I anticipate needing some helper scripts to "reset" and "populate" this database as part of the front-end.
+
+I use WSL, as I'm on a Windows machine for now and setting this up with MongoDB is a pretty awful experience. Luckily, since a later requirement is to move over to a Docker script I'm bringing that in now.
