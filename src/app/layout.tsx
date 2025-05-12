@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <CacheProvider value={cache}>
           <Global styles={globalStyles} /> {/* Apply global styles */}

@@ -1,22 +1,18 @@
 "use client";
 
 import { useButtonMachine } from "@/hooks/useButtonMachine";
-import Button from "@/components/Button"; // Assuming Button is a styled component
+import Button from "@/components/Button";
 
 const ButtonWithState = () => {
   const { currentState, clickButton, resetButton } = useButtonMachine();
 
-  // Log state and count for debugging purposes
-  console.log("Current state:", currentState);
-
   return (
     <div>
       <Button
-        variant={currentState === "idle" ? "primary" : "secondary"} // Toggle button color based on state
-        onClick={currentState === "idle" ? clickButton : resetButton} // Handle click/reset based on state
+        variant={currentState === "idle" ? "primary" : "secondary"}
+        onClick={currentState === "idle" ? clickButton : resetButton}
       >
-        {currentState === "idle" ? `Click me` : `Clicked!`}{" "}
-        {/* Display the count */}
+        {currentState === "idle" ? `Click me` : `Clicked!`}
       </Button>
     </div>
   );

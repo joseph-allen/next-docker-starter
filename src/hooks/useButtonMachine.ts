@@ -5,15 +5,15 @@ export function useButtonMachine() {
   const [state, send] = useMachine(buttonMachine);
 
   const clickButton = () => {
-    send({ type: "CLICK" }); // Send CLICK event to transition to 'clicked'
+    send({ type: "CLICK" });
   };
 
   const resetButton = () => {
-    send({ type: "RESET" }); // Send RESET event to transition back to 'idle'
+    send({ type: "RESET" });
   };
 
   return {
-    currentState: state.value, // The current state of the machine ('idle' or 'clicked')
+    currentState: state.value,
     clickButton,
     resetButton,
   };
