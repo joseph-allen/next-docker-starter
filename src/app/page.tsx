@@ -1,12 +1,11 @@
 "use client";
-import Button from "@/components/Button";
 import Container from "@/components/Container";
-
+import ButtonWithState from "@/components/ButtonWithState";
 export default function HomePage() {
   return (
     <Container>
       <p>Demo App</p>
-      <Button>Click me</Button>
+      <ButtonWithState />
     </Container>
   );
 }

@@ -12,9 +12,11 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@xstate/react": "^5.0.4",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "xstate": "^5.19.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
