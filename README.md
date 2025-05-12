@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Remote Waitlist Manager
 
-## Getting Started
+Node Version - v22.15.0
+Live URL - https://fullstack-swe-takehome.vercel.app/
 
-First, run the development server:
+A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners.
+
+Takehome task for TableCheck.
+
+# Table of Contents
+
+1. [Deployment](#deployment)
+2. [Stack](#stack)
+3. [Setup](#setup)
+4. [Diary](#diary)
+
+## Deployment
+
+## Stack
+
+## Setup
+
+### First time setup
+
+If you've never run a Next app locally before, this more verbose guide is for you.
+
+#### 1. Install Node.js (via NVM)
+
+We use [`nvm`](https://github.com/nvm-sh/nvm) to manage Node.js versions.
+
+##### a. Install `nvm` (macOS/Linux):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then restart your terminal.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##### b. Install `nvm` (macOS/Linux):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project includes an .nvmrc file, so you can run the following to set your version in this folder.
 
-## Learn More
+```bash
+nvm install
+nvm use
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### 2. Install Docker
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Install Docker Desktop from the official site:  
+https://www.docker.com/products/docker-desktop/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Quick setup
 
-## Deploy on Vercel
+For a user who already has this all setup, you have access to the usual npm commands:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- npm install
+- npm run dev
+- npm run build
+- npm run start
+- npm run test
+- npm run lint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You will also need a copy of the secret environment variables, to run:
+
+```bash
+docker compose up
+```
+
+## Diary
+
+### Initial thoughts
+
+Having read multiple blog posts from the TableCheck tech blog, I stumbled upon [the fullstack tech test](https://github.com/TableCheck-Labs/fullstack-swe-takehome). My intial thoughts are that this is highly technical, and I haven't done a take home task in a while. Despite that, I like a structured oppurtunity to learn and don't have a recent tech test up so regardless of the outcome, this looks like a good use of my time.
+
+My hunch to start, would be to replicate the tech stack outlined in [Frontend engineering at TableCheck](https://www.tablecheck.com/en/blog/tech/frontend-engineering-at-tablecheck/), but my recent experience is more Next.js focused and I think I'm going to need to move quickly. This also means I get API routes, SSR and the benefits of deploying with Vercel itself.Thinking ahead to deployment, this stack means I could handle my deployment with a single instance on Vercel, and have the Database hosted elsewhere.
+
+Leaving me with the following Stack as a starting point:
+
+#### Stack intuition
+
+- Framework: Next.js (React + TypeScript)
+- State Management: XState
+- Styling: Emotion
+- Reusable Components: Storybook
+- Database: MongoDB
+- Deployment: Vercel + MongoDB Atlas
+- Docker: local deployment + requirement from tech test
+
+There are many additional requirements in the tech test, notably:
+
+- Runnable with `docker compose up`
+- "the user must be able to view the state of their queued party across multiple browser sessions."
+- Add github users
+
+#### Setup
+
+At this point, I'm ready to create a walking skeleton of working components along, roughly outlined below, but please see the Projects Board on Github:
+
+- Setup Next.js with TS.
+- Setup Emotion
+- Setup XState
+- Setup MongoDB and MongoDB Atlas
+- Docker
+- .env local files
+- Setup Jest for unit testing
+- Setup Cypress for E2E
+- Setup Prettier and ESLint
+- Setup Husky pre-commit prettier and jest
+
+### 1. Setup Next
+
+On a hunch I'm checking my node version, currently fixed to v22.14.0 for another project. So moving to latest.
+
+I always find myself coming back to projects annoyed it's not obvious what versions the project is locked to, especially on older, maintained projects. So I always throw this at the top of the README too.
+
+While we are here, let's add some extremely accessible "How to start a Next project" installation instructions.
+
+I'm not certain on the shape of my docker file yet, but I know my requirement is to have it run simply.
