@@ -1,6 +1,7 @@
 # Remote Waitlist Manager
 
 Node Version - v22.15.0
+
 Live URL - https://fullstack-swe-takehome.vercel.app/
 
 A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners.
