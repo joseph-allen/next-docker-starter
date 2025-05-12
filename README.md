@@ -3,6 +3,7 @@
 Node Version - v22.15.0
 
 Live URL - https://fullstack-swe-takehome.vercel.app/
+API Endpoint - https://fullstack-swe-takehome.vercel.app/api/test
 
 A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners.
 
