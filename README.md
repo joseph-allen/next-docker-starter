@@ -118,3 +118,9 @@ I always find myself coming back to projects annoyed it's not obvious what versi
 While we are here, let's add some extremely accessible "How to start a Next project" installation instructions.
 
 I'm not certain on the shape of my docker file yet, but I know my requirement is to have it run simply.
+
+### 2. Style solution
+
+My choice of Next immediately backfired, in a view to make my API a self-documenting one I forgot the complexities added by having the option of easy SSR with Next and Vercel. This meant I was burrowing down for the edge case of a working example or Emotion, with Next, with SSR, in these particular versions of React and Emotion. This has been shockingly turbulent over the last few versions and after spending too long on what should have been "out-of-the-box" I instead decided to not use SSR in my client-side components.
+
+Had I known this, I think I would instead use Material-UI with Tailwind for inline styles, considering this is a faster prototyping project, but I think for a larger project I was more along the right track here.
