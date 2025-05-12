@@ -11,7 +11,15 @@
     "prepare": "husky",
     "test": "jest --config jest.config.ts",
     "test:watch": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "postinstall": "husky init"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "jest --bail --findRelatedTests"
+    ]
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
