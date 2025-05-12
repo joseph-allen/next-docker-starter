@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useButtonMachine } from "@/hooks/useButtonMachine";
-import Button from "@/components/Button";
+import { useButtonMachine } from '@/hooks/useButtonMachine';
+import Button from '@/components/Button';
 
 const ButtonWithState = () => {
   const { currentState, clickButton, resetButton } = useButtonMachine();
@@ -9,10 +9,10 @@ const ButtonWithState = () => {
   return (
     <div>
       <Button
-        variant={currentState === "idle" ? "primary" : "secondary"}
-        onClick={currentState === "idle" ? clickButton : resetButton}
+        variant={currentState === 'idle' ? 'primary' : 'secondary'}
+        onClick={currentState === 'idle' ? clickButton : resetButton}
       >
-        {currentState === "idle" ? `Click me` : `Clicked!`}
+        {currentState === 'idle' ? `Click me` : `Clicked!`}
       </Button>
     </div>
   );

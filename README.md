@@ -59,6 +59,18 @@ nvm install
 nvm use
 ```
 
+#### 2. Set Editor settings for VSCode
+
+```
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
 ### Quick setup
 
 For a user who already has this all setup, you have access to the usual npm commands:
