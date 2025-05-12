@@ -1,18 +1,17 @@
 import { createMachine } from "xstate";
 
-// Define the machine logic for button click (no count anymore)
 export const buttonMachine = createMachine({
   id: "buttonMachine",
-  initial: "idle", // Starting state is 'idle'
+  initial: "idle",
   states: {
     idle: {
       on: {
-        CLICK: "clicked", // On CLICK event, transition to 'clicked'
+        CLICK: "clicked",
       },
     },
     clicked: {
       on: {
-        RESET: "idle", // On RESET event, transition back to 'idle'
+        RESET: "idle",
       },
     },
   },
