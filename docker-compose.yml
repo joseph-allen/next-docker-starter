@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: ./next-app # Set build context to next-app directory
+      dockerfile: Dockerfile # Specify Dockerfile location within next-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./next-app:/app # Mount next-app directory to /app in container
+    environment:
+      - MONGODB_URI=mongodb://root:example@mongodb:27017
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    ports:
+      - "27017:27017"
