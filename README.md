@@ -48,30 +48,9 @@ nvm use
 
 #### 2. Install Docker
 
-```bash
-docker run -d \
-  -p 27017:27017 \
-  -v $(pwd)/lib/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro \
-  -e MONGO_INITDB_ROOT_USERNAME=root \
-  -e MONGO_INITDB_ROOT_PASSWORD=example \
-  mongo
-
 ```
-
-Run Docker with MongoDB instance:
-
-```
-docker compose up -d
-```
-
-```
-docker ps
-```
-
-Stop container:
-
-```
-docker compose down
+DOCKER_BUILDKIT=1 docker compose build --no-cache
+docker compose up
 ```
 
 ### Quick setup

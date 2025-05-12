@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/lib/init-mongodb.js"
+    "init-mongodb.js"
   ],
   "exclude": ["node_modules"]
 }
