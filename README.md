@@ -88,6 +88,14 @@ You will also need a copy of the secret environment variables, to run:
 docker compose up
 ```
 
+### Storybook
+
+Open Storybook locally with:
+
+```bash
+npm run storybook
+```
+
 ## Diary
 
 ### Initial thoughts
