@@ -183,3 +183,7 @@ Happily, I've satisfied the requirement to run on `docker compose run` without h
 Storybook to slowly maintain our own component library, allow visual testing and Chromatic to perform and approve snapshot testing.
 
 At this point I realize I've made a pretty mature outline of what should be a basic tech test, and I'm aware these things aren't being used well, and will add a lot of work but I think it's important I show the kind of project setup I would do over just the programming. Hopefully I don't have to reuse this repo for another tech test, but at this point it's a good Next+Mongo Template.
+
+### 6. Setup E2E testing with Cypress
+
+Starting Cypress from the inception of a project makes a lot more sense, it's a trivial and enjoyable experience to add. I've always been unsure as to when E2E tests should run, the last project I worked on, E2E tests took over 6 hours to run, and became a complete blocker of the pipeline. Because of this they ran it once overnight, which often meant morning rollbacks. My hunch, is that lots of tests accomadated for timing out or something strange because at the moment, it's quite quick. Github actions on push and pull request seem like a right level for now.
