@@ -1,11 +1,17 @@
-// next-app/tsconfig.jest.json
 {
-  "extends": "./tsconfig.json", // Reference your main tsconfig
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx", // Ensure JSX is handled properly
     "module": "commonjs",
+    "jsx": "react-jsx",
+    "types": ["jest", "@testing-library/jest-dom"],
     "esModuleInterop": true,
-    "noEmit": true,
-    "isolatedModules": false
-  }
+    "noEmit": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "jest.setup.ts"
+  ]
 }
