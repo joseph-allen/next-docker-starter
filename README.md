@@ -96,6 +96,12 @@ Open Storybook locally with:
 npm run storybook
 ```
 
+We can also deploy to Chromatic with
+
+```bash
+npx chromatic --project-token=chpt_b609d47135590e0
+```
+
 ## Diary
 
 ### Initial thoughts

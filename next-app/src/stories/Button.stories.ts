@@ -3,7 +3,6 @@ import { fn } from '@storybook/test';
 
 import ButtonWithState from '@/components/ButtonWithState';
 
-// Default export metadata
 const meta = {
   title: 'Example/Button',
   component: ButtonWithState,
@@ -11,13 +10,22 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['primary', 'secondary'],
+    },
+  },
   args: {
-    onClick: fn(),
+    variant: 'primary',
   },
 } satisfies Meta<typeof ButtonWithState>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Stories
-export const Primary: Story = {};
+export const Button: Story = {
+  args: {
+    variant: 'primary',
+  },
+};
