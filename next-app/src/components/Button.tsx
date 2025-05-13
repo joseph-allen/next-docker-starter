@@ -15,8 +15,8 @@ const Button = styled.button<ButtonProps>`
   transition: background-color 0.2s ease;
 
   background-color: ${({ variant }) =>
-    variant === 'secondary' ? '#eee' : 'hotpink'};
-  color: ${({ variant }) => (variant === 'secondary' ? '#333' : 'white')};
+    variant === 'secondary' ? '#ddd' : 'hotpink'};
+  color: ${({ variant }) => (variant === 'secondary' ? '#444' : 'white')};
 
   &:hover {
     background-color: ${({ variant }) =>

@@ -3,18 +3,20 @@
 import { useButtonMachine } from '@/hooks/useButtonMachine';
 import Button from '@/components/Button';
 
-const ButtonWithState = () => {
+interface ButtonWithStateProps {
+  variant?: 'primary' | 'secondary';
+}
+
+const ButtonWithState = ({ variant = 'primary' }: ButtonWithStateProps) => {
   const { currentState, clickButton, resetButton } = useButtonMachine();
 
   return (
-    <div>
-      <Button
-        variant={currentState === 'idle' ? 'primary' : 'secondary'}
-        onClick={currentState === 'idle' ? clickButton : resetButton}
-      >
-        {currentState === 'idle' ? `Click me` : `Clicked!`}
-      </Button>
-    </div>
+    <Button
+      variant={variant}
+      onClick={currentState === 'idle' ? clickButton : resetButton}
+    >
+      {currentState === 'idle' ? 'Click me' : 'Clicked!'}
+    </Button>
   );
 };
 
