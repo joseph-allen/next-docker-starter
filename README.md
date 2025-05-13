@@ -3,6 +3,7 @@
 Node Version - v22.15.0
 
 Live URL - https://fullstack-swe-takehome.vercel.app/
+
 API Endpoint - https://fullstack-swe-takehome.vercel.app/api/test
 
 A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners.
@@ -174,3 +175,9 @@ At this point I have the Docker Compose script building an empty MongoDB, which 
 I feel a need to mention is strange edge case, I'm coding on Windows and many docker images don't work on Windows OS. I would have expected the point of Docker to be that you could run your containers anywhere, but I suppose people aren't running those containers on Windows machines much, so apologies I had to include Docker Buildkit so while you may be able to run the simple docker compose required, I will not.
 
 Happily, I've satisfied the requirement to run on `docker compose run` without having to do so intentionally.
+
+### 5. Setup Storybook + Chromatic
+
+Storybook to slowly maintain our own component library, allow visual testing and Chromatic to perform and approve snapshot testing.
+
+At this point I realize I've made a pretty mature outline of what should be a basic tech test, and I'm aware these things aren't being used well, and will add a lot of work but I think it's important I show the kind of project setup I would do over just the programming. Hopefully I don't have to reuse this repo for another tech test, but at this point it's a good Next+Mongo Template.
