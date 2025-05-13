@@ -1,1 +1,6 @@
-npm test
+cd next-app
+echo "Running lint in next-app..."
+npm run lint
+echo "Running tests in next-app..."
+npm run test
+# exit 1 # uncomment to test
