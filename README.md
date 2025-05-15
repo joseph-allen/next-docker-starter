@@ -1,30 +1,20 @@
 # Remote Waitlist Manager
-
 Node Version - v22.15.0
 
-Live URL - https://fullstack-swe-takehome.vercel.app/
+* [Project Board](https://github.com/users/joseph-allen/projects/2)
+* [Live URL](https://fullstack-swe-takehome.vercel.app/)
+* [API Endpoint](https://fullstack-swe-takehome.vercel.app/api/test)
+* [Storybook](https://6823193a638044cca3f86e60-dqlkgbwbev.chromatic.com/)
 
-API Endpoint - https://fullstack-swe-takehome.vercel.app/api/test
-
-Storybook - https://6823193a638044cca3f86e60-dqlkgbwbev.chromatic.com/
-
-A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners.
-
-Takehome task for TableCheck.
+A full-stack application to manage restaurant waitlists, with real-time seating, queuing, and notifications for diners. Takehome task for TableCheck.
 
 # Table of Contents
 
-1. [Deployment](#deployment)
-2. [Stack](#stack)
-3. [Setup](#setup)
-4. [Diary](#diary)
+1. [Setup](#setup)
+2. [Diary](#diary)
 
-## Deployment
 
-## Stack
-
-## Setup
-
+# Setup
 ### Quick run with Docker
 
 ```
@@ -85,12 +75,6 @@ For a user who already has this all setup, you have access to the usual npm comm
 - npm run test
 - npm run lint
 
-You will also need a copy of the secret environment variables, to run:
-
-```bash
-docker compose up
-```
-
 ### Storybook
 
 Open Storybook locally with:
@@ -99,15 +83,18 @@ Open Storybook locally with:
 npm run storybook
 ```
 
-We can also deploy to Chromatic with
+We can also deploy Storybook to Chromatic with
 
 ```bash
 npx chromatic --project-token=chpt_b609d47135590e0
 ```
 
-## Diary
+# Diary
+1. [Initial thoughts](#initial-thoughts)
+2. [Project Setup](#project-setup)
+3. [Solution](#solution)
 
-### Initial thoughts
+## Initial thoughts
 
 Having read multiple blog posts from the TableCheck tech blog, I stumbled upon [the fullstack tech test](https://github.com/TableCheck-Labs/fullstack-swe-takehome). My intial thoughts are that this is highly technical, and I haven't done a take home task in a while. Despite that, I like a structured oppurtunity to learn and don't have a recent tech test up so regardless of the outcome, this looks like a good use of my time.
 
@@ -115,7 +102,7 @@ My hunch to start, would be to replicate the tech stack outlined in [Frontend en
 
 Leaving me with the following Stack as a starting point:
 
-#### Stack intuition
+## Stack intuition
 
 - Framework: Next.js (React + TypeScript)
 - State Management: XState
@@ -131,7 +118,7 @@ There are many additional requirements in the tech test, notably:
 - "the user must be able to view the state of their queued party across multiple browser sessions."
 - Add github users
 
-#### Setup
+## Project Setup
 
 At this point, I'm ready to create a walking skeleton of working components along, roughly outlined below, but please see the Projects Board on Github:
 
@@ -187,3 +174,35 @@ At this point I realize I've made a pretty mature outline of what should be a ba
 ### 6. Setup E2E testing with Cypress
 
 Starting Cypress from the inception of a project makes a lot more sense, it's a trivial and enjoyable experience to add. I've always been unsure as to when E2E tests should run, the last project I worked on, E2E tests took over 6 hours to run, and became a complete blocker of the pipeline. Because of this they ran it once overnight, which often meant morning rollbacks. My hunch, is that lots of tests accomadated for timing out or something strange because at the moment, it's quite quick. Github actions on push and pull request seem like a right level for now.
+
+### Solution
+I think at this point, I have my stack setup with basic examples. A brief outline of my intended solution is as follows:
+1. Full-Stack Next.js - This is my solution to front-end and back-end with options for isomorphic SSR. API is largely self-documenting and won't require me to setup another project.
+2. MongoDB - Chosen for it's ease of setup with Docker.
+3. Server Sent Events - While Websockets might be ideal, I'm going to try for Server-Sent Events to push status updates to the client.
+4. Client-side partyID - Setting a partyID for the user in localstorage can maintain a connection to their status, across sessions without a complicated authentication problem being solved.
+5. Queue Processing - Backend responds to Server Sent Events by processing the queue as availibility arrives.
+
+In the interest of keeping things short, but open to refactoring I have a notion of "A resturant" and a notion of "Parties", where a party is described as follows:
+```
+{
+  _id: ObjectId(),
+  partyId: "unique-uuid-string",
+  name: "The Smiths",
+  partySize: 4,
+  status: "WAITING", // WAITING, READY_TO_CHECK_IN, SERVING, COMPLETED
+  joinedAt: ISODate(),
+  serviceStartTime: null,
+  serviceEndTime: null,
+  notifiedReady: false
+}
+```
+
+I think the backend can be covered with a few GET and POST requests, with some filtering and maths happening somewhere on the backend or MongoDB itself.
+
+The Front-end can probably be reduced to:
+* Join Queue From - Show the current queue state if needed, shows estimated wait time, collects details from users.
+* Party Status - Maybe a version of this is availible even before you join the queue.
+* Queue Controls - Check In Button and Cancel Queue button
+
+These are just initial thoughts, to be fleshed out on the Projects board.
