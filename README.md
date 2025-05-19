@@ -212,3 +212,14 @@ I'd expect to work from an existing design, so I think making my own wireframes 
 
 ![Wireframes](https://github.com/user-attachments/assets/1778aca3-3044-4200-9aae-0656680c50dd)
 
+While we don't always get the chance to see a fully-designed app before we start development, this time we do so we can make a decision on our component structure before we start. I'm undecided as to whether we should pre-design components, or abstract them out as we justify uses for them. For the sake of simple tickets though, I will design the components first.
+![Wireframes](https://github.com/user-attachments/assets/6400ab80-d769-4a55-a2ae-1e556d50d9f9)
+
+Outline:
+* Layout - Usually I'd use an app-level layout to add a header/footer and brand information and simple SEO details.
+* Container - Following a Container / Component layout, I can use this top-level container to handle a lot of the logic meaning components below could be entirely functional.
+* Status - A Component which renders the expected wait up, alerts status changes and current party details.
+* Form - We can keep the form data seperate, with the container controlling whether or not it renders.
+* Loading - Commonly forgotten Loading/success/warning states which could be considered outside of component logic.
+
+This can be implemented, regardless of the API development with some good unit tests.
