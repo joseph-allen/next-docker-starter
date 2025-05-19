@@ -52,9 +52,10 @@ nvm use
 ```
 
 ### Quick setup
+Run `npm install` in root for git pre-commits.
+Run `npm prepare`
 
 For a user who already has this all setup, you have access to the usual npm commands:
-
 - npm install
 - npm run dev
 - npm run build
