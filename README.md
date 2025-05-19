@@ -206,3 +206,9 @@ The Front-end can probably be reduced to:
 * Queue Controls - Check In Button and Cancel Queue button
 
 These are just initial thoughts, to be fleshed out on the Projects board.
+
+### Design
+I'd expect to work from an existing design, so I think making my own wireframes is a good way to make sure I've covered the featues I expect.
+
+![Wireframes](https://github.com/user-attachments/assets/1778aca3-3044-4200-9aae-0656680c50dd)
+
