@@ -23,10 +23,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    onDownload: () => {},
+    onDelete: () => {},
+    disableDelete: false,
+  },
+};
 
 export const DeleteDisabled: Story = {
   args: {
+    onDownload: () => {},
+    onDelete: () => {},
     disableDelete: true,
   },
 };
