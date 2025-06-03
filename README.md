@@ -81,16 +81,18 @@ For this challenge we would like you to develop a basic file sharing website as 
 documentation about the design decisions and future work.
 Our file sharing website allows users to upload files, view which files are uploaded, and
 delete or download any of the files. Specifically,
+
 - A user should be able to upload file(s) to the site
 - A user should be able to view all uploaded file(s)
 - A user should be able to delete any of the uploaded file(s)
 - A user should be able to download any of the uploaded file(s) (which have not been
-deleted)
+  deleted)
 
 For this challenge:
+
 - We do not require you to implement a real file server (you may choose to mock the
-state of the file server purely on the client side / website). For example, representing
-the list of files as a variable is sufficient for this exercise:
+  state of the file server purely on the client side / website). For example, representing
+  the list of files as a variable is sufficient for this exercise:
 
 ```
 const files = [
@@ -99,17 +101,17 @@ const files = [
 ```
 
 - We would like you to focus on using production frameworks and best practices for
-this challenge (the actual implementation of the logic should be minimal, however
-we would like to see the use of frameworks like React, proper state management,
-testing, bundling, etc.)
+  this challenge (the actual implementation of the logic should be minimal, however
+  we would like to see the use of frameworks like React, proper state management,
+  testing, bundling, etc.)
 - You are welcome to and encouraged to make use of open source or off the shelf
-libraries and tools that you might use in a “real” project (ex. Material UI, NextJs, etc.).
-In addition to the implementation, please include in your README
+  libraries and tools that you might use in a “real” project (ex. Material UI, NextJs, etc.).
+  In addition to the implementation, please include in your README
 - Instructions on how to build / run / view your website
 - Documentation / justification about major design decisions (such as framework
-selection)
+  selection)
 - Additional future work that you might consider in a production environment / team
-(monitoring? deployment? API? scalability?)
+  (monitoring? deployment? API? scalability?)
 
 # Diary
 
@@ -132,6 +134,7 @@ This repo as it stands, is a repo I maintain for quickstarting a Next + Express 
 - Set up automated deployments
 
 ## UI Design
+
 ![FileUI](https://github.com/user-attachments/assets/ecbaa2aa-acf2-4be8-906e-67114c741de5)
 
 - A site/page layout for site-wide logic like Auth, Headers, Footers and global contexts.
@@ -141,3 +144,23 @@ This repo as it stands, is a repo I maintain for quickstarting a Next + Express 
 - A File Component, A component that represents Files in the FileList
 - File Controls, A Component that controls this particular file
 
+## API Design
+
+A CRUD API describing files
+
+- GET /files — Retrieve a list of all uploaded files
+- POST /files — Upload a new file
+- GET /files/:id — Download a file by ID
+- DELETE /files/:id — Delete a file by ID
+
+With File data being:
+
+```
+type FileMeta = {
+  id: string;
+  name: string;
+  size: number;
+  uploadedAt: string;
+  fileObject?: File; // We won't be dealing with this, out of scope.
+};
+```
