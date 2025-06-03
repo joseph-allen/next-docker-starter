@@ -16,7 +16,7 @@ describe('FileControls', () => {
     expect(handleDelete).toHaveBeenCalled();
   });
 
-  test('disables delete button when disableDelete is true', () => {
+  test('disables delete button when disableDelete true', () => {
     render(
       <FileControls
         onDownload={() => {}}
