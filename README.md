@@ -1,5 +1,6 @@
 # Remote Waitlist Manager
 
+[Demo Link](https://woven-takehome.vercel.app/)
 Node Version - v22.15.0
 
 # Setup
@@ -10,11 +11,20 @@ Node Version - v22.15.0
 docker compose up
 ```
 
-You may need to build for Windows devices first
+### Quick run with npm
 
-```
-DOCKER_BUILDKIT=1 docker compose build --no-cache
-```
+Move into the next-app folder `cd next-app`
+Run `npm install` in root for git pre-commits.
+Run `npm run dev`
+
+For a user who already has this all setup, you have access to the usual npm commands:
+
+- npm install
+- npm run dev
+- npm run build
+- npm run start
+- npm run test
+- npm run lint
 
 ### Running locally
 
@@ -52,20 +62,6 @@ nvm use
   }
 }
 ```
-
-### Quick setup
-
-Run `npm install` in root for git pre-commits.
-Run `npm prepare`
-
-For a user who already has this all setup, you have access to the usual npm commands:
-
-- npm install
-- npm run dev
-- npm run build
-- npm run start
-- npm run test
-- npm run lint
 
 ### Storybook
 
@@ -126,6 +122,7 @@ This repo as it stands, is a repo I maintain for quickstarting a Next + Express 
 - Linting - ESLint config for TypeScript files
 - XState - my preferred state management option
 - Material UI - my quickstart for rapid prototypes
+- GitHub Actions to run tests and deploy storybook
 
 ## Tasks as it stands:
 
