@@ -12,7 +12,11 @@ const FileControls: React.FC<FileControlsProps> = ({
   return (
     <ButtonGroup variant="outlined">
       <Tooltip title="Download">
-        <IconButton color="primary" onClick={onDownload}>
+        <IconButton
+          color="primary"
+          onClick={onDownload}
+          data-testid="download-button"
+        >
           <DownloadIcon />
         </IconButton>
       </Tooltip>
@@ -20,7 +24,12 @@ const FileControls: React.FC<FileControlsProps> = ({
       <Tooltip title="Delete">
         {/* span to safely disable button */}
         <span>
-          <IconButton color="error" onClick={onDelete} disabled={disableDelete}>
+          <IconButton
+            data-testid="delete-button"
+            color="error"
+            onClick={onDelete}
+            disabled={disableDelete}
+          >
             <DeleteIcon />
           </IconButton>
         </span>
